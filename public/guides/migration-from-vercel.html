@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Migration from Vercel - YC-OpenNext Docs</title>
+    <title>Migration from Vercel - YC-Next Docs</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
@@ -42,7 +42,7 @@
               YC
             </text>
           </svg>
-          YC-OpenNext
+          YC-Next
         </a>
         <ul class="nav-links">
           <li><a href="/#features">Features</a></li>
@@ -50,7 +50,7 @@
           <li><a href="/docs.html" class="active">Documentation</a></li>
           <li><a href="/examples/blog-with-isr.html">Examples</a></li>
         </ul>
-        <a href="https://github.com/yc-opennext/yc-opennext" class="github-btn" target="_blank">
+        <a href="https://github.com/yc-next/yc-next" class="github-btn" target="_blank">
           <i class="fab fa-github"></i> GitHub
         </a>
         <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
@@ -124,7 +124,7 @@
           <h2>Overview</h2>
 
           <p>
-            YC-OpenNext provides Vercel-like functionality on Yandex Cloud with these key
+            YC-Next provides Vercel-like functionality on Yandex Cloud with these key
             differences:
           </p>
 
@@ -133,7 +133,7 @@
               <tr>
                 <th>Feature</th>
                 <th>Vercel</th>
-                <th>YC-OpenNext</th>
+                <th>YC-Next</th>
               </tr>
             </thead>
             <tbody>
@@ -212,7 +212,7 @@ vercel pull</code></pre>
 
           <h3>Update Configuration</h3>
 
-          <h4>vercel.json &rarr; yc-opennext.config.js</h4>
+          <h4>vercel.json &rarr; yc-next.config.js</h4>
 
           <p><strong>Before (vercel.json):</strong></p>
 
@@ -264,7 +264,7 @@ vercel pull</code></pre>
 
           <h3>Environment Variables</h3>
 
-          <p>Create <code>.env.production</code> for YC-OpenNext:</p>
+          <p>Create <code>.env.production</code> for YC-Next:</p>
 
           <pre><code class="language-bash"># Vercel System Variables &rarr; YC Equivalents
 NEXT_PUBLIC_VERCEL_URL &rarr; NEXT_PUBLIC_APP_URL
@@ -294,7 +294,7 @@ export default function handler() {
           <p><strong>After:</strong></p>
 
           <pre><code class="language-javascript">// pages/api/og.js
-import { ImageResponse } from '@yc-opennext/og-image';
+import { ImageResponse } from '@yc-next/og-image';
 // Or use alternative like @napi-rs/canvas
 
 export default function handler() {
@@ -329,7 +329,7 @@ export default function handler(request) {
           <h3>Verify Compatibility</h3>
 
           <pre><code class="language-bash"># Analyze your application
-yc-opennext analyze --project . --strict
+yc-next analyze --project . --strict
 
 # Review compatibility report
 cat ./capabilities.json</code></pre>
@@ -337,7 +337,7 @@ cat ./capabilities.json</code></pre>
           <h3>Test Build</h3>
 
           <pre><code class="language-bash"># Build for YC
-yc-opennext build \
+yc-next build \
   --project . \
   --output ./yc-build \
   --standalone
@@ -364,7 +364,7 @@ yc ydb database create --name my-app-db --serverless</code></pre>
           <p>Create <code>terraform/main.tf</code>:</p>
 
           <pre><code class="language-hcl">module "nextjs_app" {
-  source = "github.com/yc-opennext/yc-opennext//terraform/modules/nextjs_yc"
+  source = "github.com/yc-next/yc-next//terraform/modules/nextjs_yc"
 
   app_name       = "my-vercel-app"
   env            = "production"
@@ -406,7 +406,7 @@ terraform output api_gateway_domain
 # A/CNAME app.example.com &rarr; &lt;api-gateway-domain&gt;</code></pre>
 
           <p>
-            3. <strong>SSL Certificates:</strong> YC-OpenNext automatically provisions certificates
+            3. <strong>SSL Certificates:</strong> YC-Next automatically provisions certificates
             via Certificate Manager.
           </p>
 
@@ -415,7 +415,7 @@ terraform output api_gateway_domain
           <h3>Initial Deployment</h3>
 
           <pre><code class="language-bash"># Upload artifacts
-yc-opennext upload \
+yc-next upload \
   --build-dir ./yc-build \
   --bucket my-app-assets \
   --prefix v1
@@ -471,7 +471,7 @@ jobs:
 
       - name: Package for YC
         run: |
-          npx yc-opennext build \
+          npx yc-next build \
             --project . \
             --output ./yc-build \
             --build-id ${{ github.sha }}
@@ -481,7 +481,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.YC_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.YC_SECRET_KEY }}
         run: |
-          npx yc-opennext upload \
+          npx yc-next upload \
             --build-dir ./yc-build \
             --bucket ${{ vars.ASSETS_BUCKET }} \
             --prefix ${{ github.sha }}
@@ -585,7 +585,7 @@ export async function cronHandler() {
               <tr>
                 <th>Metric</th>
                 <th>Vercel</th>
-                <th>YC-OpenNext</th>
+                <th>YC-Next</th>
                 <th>Notes</th>
               </tr>
             </thead>
@@ -642,7 +642,7 @@ export async function cronHandler() {
             <li><strong>Total: ~$140/month</strong></li>
           </ul>
 
-          <p><strong>YC-OpenNext (pay-as-you-go):</strong></p>
+          <p><strong>YC-Next (pay-as-you-go):</strong></p>
 
           <ul>
             <li>Functions: $20</li>
@@ -687,16 +687,16 @@ export async function cronHandler() {
           <h2>Getting Support</h2>
 
           <ul>
-            <li><strong>Documentation</strong>: <a href="/docs.html">YC-OpenNext Docs</a></li>
+            <li><strong>Documentation</strong>: <a href="/docs.html">YC-Next Docs</a></li>
             <li>
               <strong>GitHub Issues</strong>:
-              <a href="https://github.com/yc-opennext/yc-opennext/issues" target="_blank"
+              <a href="https://github.com/yc-next/yc-next/issues" target="_blank"
                 >Report problems</a
               >
             </li>
             <li>
               <strong>Community</strong>:
-              <a href="https://github.com/yc-opennext/yc-opennext/discussions" target="_blank"
+              <a href="https://github.com/yc-next/yc-next/discussions" target="_blank"
                 >Discussions</a
               >
             </li>
@@ -708,11 +708,11 @@ export async function cronHandler() {
 
           <h2>Summary</h2>
 
-          <p>Migrating from Vercel to YC-OpenNext involves:</p>
+          <p>Migrating from Vercel to YC-Next involves:</p>
 
           <ol>
             <li><strong>Configuration changes</strong>: Update configs for YC compatibility</li>
-            <li><strong>Build process</strong>: Use YC-OpenNext CLI instead of Vercel CLI</li>
+            <li><strong>Build process</strong>: Use YC-Next CLI instead of Vercel CLI</li>
             <li><strong>Infrastructure</strong>: Provision YC resources with Terraform</li>
             <li><strong>CI/CD</strong>: Replace Vercel's Git integration with GitHub Actions</li>
             <li><strong>Monitoring</strong>: Set up custom monitoring/analytics</li>
@@ -762,9 +762,9 @@ export async function cronHandler() {
         <div class="footer-section">
           <h3>Community</h3>
           <ul class="footer-links">
-            <li><a href="https://github.com/yc-opennext/yc-opennext" target="_blank">GitHub</a></li>
+            <li><a href="https://github.com/yc-next/yc-next" target="_blank">GitHub</a></li>
             <li>
-              <a href="https://github.com/yc-opennext/yc-opennext/discussions" target="_blank"
+              <a href="https://github.com/yc-next/yc-next/discussions" target="_blank"
                 >Discussions</a
               >
             </li>
@@ -772,7 +772,7 @@ export async function cronHandler() {
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 YC-OpenNext. All rights reserved. | MIT License</p>
+        <p>&copy; 2024 YC-Next. All rights reserved. | MIT License</p>
       </div>
     </footer>
 

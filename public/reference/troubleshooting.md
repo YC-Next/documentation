@@ -1,12 +1,12 @@
 # Troubleshooting Guide
 
-Common issues and solutions when deploying Next.js applications with YC-OpenNext.
+Common issues and solutions when deploying Next.js applications with YC-Next.
 
 ## Build Issues
 
 ### Error: "Next.js build directory (.next) not found"
 
-**Cause:** The Next.js application hasn't been built before running YC-OpenNext.
+**Cause:** The Next.js application hasn't been built before running YC-Next.
 
 **Solution:**
 
@@ -14,8 +14,8 @@ Common issues and solutions when deploying Next.js applications with YC-OpenNext
 # Build Next.js first
 npm run build
 
-# Then run YC-OpenNext
-yc-opennext build --project . --output ./yc-build
+# Then run YC-Next
+yc-next build --project . --output ./yc-build
 ```
 
 ---
@@ -38,13 +38,13 @@ cat package.json | grep '"next"'
 
 ### Error: "Incompatible Next.js version"
 
-**Cause:** Using a Next.js version not supported by YC-OpenNext.
+**Cause:** Using a Next.js version not supported by YC-Next.
 
 **Solution:**
 
 ```bash
 # Check supported versions
-yc-opennext analyze --project . --verbose
+yc-next analyze --project . --verbose
 
 # Update Next.js to a supported version
 npm install next@14
@@ -548,12 +548,12 @@ Enable detailed logging for troubleshooting:
 
 ```bash
 # Set debug environment variables
-export DEBUG=yc-opennext:*
+export DEBUG=yc-next:*
 export LOG_LEVEL=debug
 
 # In function environment
 environment = {
-  DEBUG = "yc-opennext:*"
+  DEBUG = "yc-next:*"
   LOG_LEVEL = "debug"
 }
 ```
@@ -565,19 +565,19 @@ If you can't resolve an issue:
 1. **Search existing issues:**
 
    ```bash
-   https://github.com/yc-opennext/yc-opennext/issues
+   https://github.com/yc-next/yc-next/issues
    ```
 
 2. **Create a detailed bug report:**
-   - YC-OpenNext version
+   - YC-Next version
    - Next.js version
    - Error messages
    - Relevant configuration
    - Steps to reproduce
 
 3. **Join the community:**
-   - [GitHub Discussions](https://github.com/yc-opennext/yc-opennext/discussions)
-   - [Stack Overflow](https://stackoverflow.com/questions/tagged/yc-opennext)
+   - [GitHub Discussions](https://github.com/yc-next/yc-next/discussions)
+   - [Stack Overflow](https://stackoverflow.com/questions/tagged/yc-next)
 
 ## Common Error Codes
 

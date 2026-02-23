@@ -1,13 +1,13 @@
-# YC-OpenNext Documentation
+# YC-Next Documentation
 
-Welcome to YC-OpenNext - a Vercel-like deployment platform for Next.js applications on Yandex Cloud.
+Welcome to YC-Next - a Vercel-like deployment platform for Next.js applications on Yandex Cloud.
 
 ## 📚 Documentation Structure
 
 ### Getting Started
 
 - [Quick Start Guide](./getting-started/quick-start.md) - Deploy your first app in 5 minutes
-- [Installation](./getting-started/installation.md) - Set up YC-OpenNext
+- [Installation](./getting-started/installation.md) - Set up YC-Next
 - [Your First Deployment](./getting-started/first-deployment.md) - Step-by-step tutorial
 
 ### Guides
@@ -39,7 +39,7 @@ Welcome to YC-OpenNext - a Vercel-like deployment platform for Next.js applicati
 
 ## 🚀 Quick Links
 
-- **Getting Started**: New to YC-OpenNext? [Start here](./getting-started/quick-start.md)
+- **Getting Started**: New to YC-Next? [Start here](./getting-started/quick-start.md)
 - **Migration Guide**: Coming from Vercel? [Read this](./guides/migration-from-vercel.md)
 - **CLI Reference**: Need command help? [Check here](./api/cli-commands.md)
 - **Troubleshooting**: Having issues? [Look here](./reference/troubleshooting.md)
@@ -55,7 +55,7 @@ Welcome to YC-OpenNext - a Vercel-like deployment platform for Next.js applicati
 
 ## 🎯 Use Cases
 
-YC-OpenNext is perfect for:
+YC-Next is perfect for:
 
 - **Dynamic Web Applications** - Full-stack Next.js apps with SSR
 - **E-commerce Platforms** - High-performance shopping experiences
@@ -71,16 +71,16 @@ YC-OpenNext is perfect for:
 
 ## 🤝 Community & Support
 
-- **GitHub**: [yc-opennext/yc-opennext](https://github.com/yc-opennext/yc-opennext)
-- **Issues**: [Report bugs or request features](https://github.com/yc-opennext/yc-opennext/issues)
-- **Discussions**: [Ask questions and share ideas](https://github.com/yc-opennext/yc-opennext/discussions)
+- **GitHub**: [yc-next/yc-next](https://github.com/yc-next/yc-next)
+- **Issues**: [Report bugs or request features](https://github.com/yc-next/yc-next/issues)
+- **Discussions**: [Ask questions and share ideas](https://github.com/yc-next/yc-next/discussions)
 
 ## 🔄 Version Compatibility
 
-| YC-OpenNext | Next.js | Node.js | Terraform |
+| YC-Next | Next.js | Node.js | Terraform |
 | ----------- | ------- | ------- | --------- |
 | 1.0.x       | 12-15   | 18+     | 1.5+      |
 
 ## 📝 License
 
-YC-OpenNext is open source software [licensed as MIT](https://github.com/yc-opennext/yc-opennext/blob/main/LICENSE).
+YC-Next is open source software [licensed as MIT](https://github.com/yc-next/yc-next/blob/main/LICENSE).

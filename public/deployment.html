@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deployment Guide - YC-OpenNext Docs</title>
+    <title>Deployment Guide - YC-Next Docs</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
                     <circle cx="16" cy="16" r="15" fill="#1976d2"/>
                     <text x="16" y="21" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">YC</text>
                 </svg>
-                YC-OpenNext
+                YC-Next
             </a>
             <ul class="nav-links">
                 <li><a href="/#features">Features</a></li>
@@ -28,7 +28,7 @@
                 <li><a href="/docs.html" class="active">Documentation</a></li>
                 <li><a href="/examples/blog-with-isr.html">Examples</a></li>
             </ul>
-            <a href="https://github.com/yc-opennext/yc-opennext" class="github-btn" target="_blank">
+            <a href="https://github.com/yc-next/yc-next" class="github-btn" target="_blank">
                 <i class="fab fa-github"></i> GitHub
             </a>
             <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
@@ -136,17 +136,17 @@ export YC_TOKEN=$(yc iam create-token)</code></pre>
 
                 <h2>Step-by-Step Deployment</h2>
 
-                <h3>1. Install YC-OpenNext CLI</h3>
+                <h3>1. Install YC-Next CLI</h3>
 
-                <pre><code class="language-bash">npm install -g @yc-opennext/cli
+                <pre><code class="language-bash">npm install -g @yc-next/cli
 # or
-pnpm add -g @yc-opennext/cli</code></pre>
+pnpm add -g @yc-next/cli</code></pre>
 
                 <h3>2. Prepare Your Next.js Application</h3>
                 <p>Ensure your Next.js app is compatible:</p>
 
                 <pre><code class="language-bash"># Check compatibility
-yc-opennext analyze --project ./my-nextjs-app
+yc-next analyze --project ./my-nextjs-app
 
 # Update next.config.js for standalone
 module.exports = {
@@ -161,7 +161,7 @@ cd my-nextjs-app
 npm run build
 
 # Package for YC deployment
-yc-opennext build \
+yc-next build \
   --project . \
   --output ../build \
   --standalone \
@@ -197,7 +197,7 @@ export AWS_ACCESS_KEY_ID=your_access_key
 export AWS_SECRET_ACCESS_KEY=your_secret_key
 
 # Upload to YC Object Storage
-yc-opennext upload \
+yc-next upload \
   --build-dir ./build \
   --bucket my-app-assets \
   --cache-bucket my-app-cache \
@@ -209,7 +209,7 @@ yc-opennext upload \
                 <p>Edit <code>main.tf</code> to set your domain and adjust parameters:</p>
 
                 <pre><code class="language-hcl">module "nextjs" {
-  source = "github.com/YC-OpenNext/terraform-yandex-nextjs//modules/nextjs_yc?ref=v1.0.0"
+  source = "github.com/YC-Next/terraform-yandex-nextjs//modules/nextjs_yc?ref=v1.0.0"
 
   app_name       = "my-nextjs-app"
   env            = "production"
@@ -281,7 +281,7 @@ prepared_instances = {
 }</code></pre>
 
                 <pre><code class="language-bash"># Quick deploy for dev
-yc-opennext build --project . --output ./build --skip-build
+yc-next build --project . --output ./build --skip-build
 terraform apply</code></pre>
 
                 <h3>Production Environment</h3>
@@ -304,7 +304,7 @@ cache_ttl_days = 30</code></pre>
 
                 <pre><code class="language-bash"># Production build
 NODE_ENV=production npm run build
-yc-opennext build --project . --output ./build --standalone
+yc-next build --project . --output ./build --standalone
 terraform apply</code></pre>
 
                 <h3>Staging Environment</h3>
@@ -327,10 +327,10 @@ prepared_instances = {
                 <h3>Deploy New Version</h3>
 
                 <pre><code class="language-bash"># 1. Build new version
-yc-opennext build --project . --output ./build-v2 --build-id v2
+yc-next build --project . --output ./build-v2 --build-id v2
 
 # 2. Upload new artifacts
-yc-opennext upload --build-dir ./build-v2 --bucket my-app-assets --prefix v2
+yc-next upload --build-dir ./build-v2 --bucket my-app-assets --prefix v2
 
 # 3. Update manifest_path and build_dir in main.tf, then apply
 terraform apply</code></pre>
@@ -409,13 +409,13 @@ yc ydb database get --name my-app-ydb</code></pre>
                 <p>Enable detailed logging:</p>
 
                 <pre><code class="language-javascript">// Set in function environment
-DEBUG=yc-opennext:*
+DEBUG=yc-next:*
 LOG_LEVEL=debug</code></pre>
 
                 <h3>Support</h3>
                 <ul>
-                    <li>GitHub Issues: <a href="https://github.com/yc-opennext/yc-opennext/issues">https://github.com/yc-opennext/yc-opennext/issues</a></li>
-                    <li>Documentation: <a href="https://yc-opennext.dev/docs">https://yc-opennext.dev/docs</a></li>
+                    <li>GitHub Issues: <a href="https://github.com/yc-next/yc-next/issues">https://github.com/yc-next/yc-next/issues</a></li>
+                    <li>Documentation: <a href="https://yc-next.dev/docs">https://yc-next.dev/docs</a></li>
                     <li>YC Support: <a href="https://cloud.yandex.com/support">https://cloud.yandex.com/support</a></li>
                 </ul>
 
@@ -458,13 +458,13 @@ LOG_LEVEL=debug</code></pre>
             <div class="footer-section">
                 <h3>Community</h3>
                 <ul class="footer-links">
-                    <li><a href="https://github.com/yc-opennext/yc-opennext" target="_blank">GitHub</a></li>
-                    <li><a href="https://github.com/yc-opennext/yc-opennext/discussions" target="_blank">Discussions</a></li>
+                    <li><a href="https://github.com/yc-next/yc-next" target="_blank">GitHub</a></li>
+                    <li><a href="https://github.com/yc-next/yc-next/discussions" target="_blank">Discussions</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 YC-OpenNext. All rights reserved. | MIT License</p>
+            <p>&copy; 2024 YC-Next. All rights reserved. | MIT License</p>
         </div>
     </footer>
 

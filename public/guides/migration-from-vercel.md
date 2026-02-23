@@ -1,12 +1,12 @@
-# Migration Guide: From Vercel to YC-OpenNext
+# Migration Guide: From Vercel to YC-Next
 
-Comprehensive guide for migrating your Next.js application from Vercel to Yandex Cloud using YC-OpenNext.
+Comprehensive guide for migrating your Next.js application from Vercel to Yandex Cloud using YC-Next.
 
 ## Overview
 
-YC-OpenNext provides Vercel-like functionality on Yandex Cloud with these key differences:
+YC-Next provides Vercel-like functionality on Yandex Cloud with these key differences:
 
-| Feature            | Vercel           | YC-OpenNext            |
+| Feature            | Vercel           | YC-Next            |
 | ------------------ | ---------------- | ---------------------- |
 | **Deployment**     | Git-based        | CLI/Terraform          |
 | **Edge Functions** | V8 Isolates      | Node.js with polyfills |
@@ -59,7 +59,7 @@ vercel pull
 
 ### Update Configuration
 
-#### vercel.json → yc-opennext.config.js
+#### vercel.json → yc-next.config.js
 
 **Before (vercel.json):**
 
@@ -115,7 +115,7 @@ module.exports = {
 
 ### Environment Variables
 
-Create `.env.production` for YC-OpenNext:
+Create `.env.production` for YC-Next:
 
 ```bash
 # Vercel System Variables → YC Equivalents
@@ -150,7 +150,7 @@ export default function handler() {
 
 ```javascript
 // pages/api/og.js
-import { ImageResponse } from '@yc-opennext/og-image';
+import { ImageResponse } from '@yc-next/og-image';
 // Or use alternative like @napi-rs/canvas
 
 export default function handler() {
@@ -191,7 +191,7 @@ export default function handler(request) {
 
 ```bash
 # Analyze your application
-yc-opennext analyze --project . --strict
+yc-next analyze --project . --strict
 
 # Review compatibility report
 cat ./capabilities.json
@@ -201,7 +201,7 @@ cat ./capabilities.json
 
 ```bash
 # Build for YC
-yc-opennext build \
+yc-next build \
   --project . \
   --output ./yc-build \
   --standalone
@@ -232,7 +232,7 @@ Create `terraform/main.tf`:
 
 ```hcl
 module "nextjs_app" {
-  source = "github.com/yc-opennext/yc-opennext//terraform/modules/nextjs_yc"
+  source = "github.com/yc-next/yc-next//terraform/modules/nextjs_yc"
 
   app_name       = "my-vercel-app"
   env            = "production"
@@ -279,7 +279,7 @@ terraform output api_gateway_domain
 ```
 
 3. **SSL Certificates:**
-   YC-OpenNext automatically provisions certificates via Certificate Manager.
+   YC-Next automatically provisions certificates via Certificate Manager.
 
 ## Step 6: Deploy to YC
 
@@ -287,7 +287,7 @@ terraform output api_gateway_domain
 
 ```bash
 # Upload artifacts
-yc-opennext upload \
+yc-next upload \
   --build-dir ./yc-build \
   --bucket my-app-assets \
   --prefix v1
@@ -347,7 +347,7 @@ jobs:
 
       - name: Package for YC
         run: |
-          npx yc-opennext build \
+          npx yc-next build \
             --project . \
             --output ./yc-build \
             --build-id ${{ github.sha }}
@@ -357,7 +357,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.YC_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.YC_SECRET_KEY }}
         run: |
-          npx yc-opennext upload \
+          npx yc-next upload \
             --build-dir ./yc-build \
             --bucket ${{ vars.ASSETS_BUCKET }} \
             --prefix ${{ github.sha }}
@@ -466,7 +466,7 @@ export async function cronHandler() {
 
 ## Performance Comparison
 
-| Metric            | Vercel      | YC-OpenNext | Notes                  |
+| Metric            | Vercel      | YC-Next | Notes                  |
 | ----------------- | ----------- | ----------- | ---------------------- |
 | **Cold Start**    | 50-250ms    | 100-500ms   | Use prepared instances |
 | **Warm Response** | 10-50ms     | 10-50ms     | Comparable             |
@@ -486,7 +486,7 @@ Rough monthly estimates for a typical app:
 - Bandwidth: $40
 - **Total: ~$140/month**
 
-**YC-OpenNext (pay-as-you-go):**
+**YC-Next (pay-as-you-go):**
 
 - Functions: $20
 - Storage: $5
@@ -524,17 +524,17 @@ If you need to rollback to Vercel:
 
 ## Getting Support
 
-- **Documentation**: [YC-OpenNext Docs](../README.md)
-- **GitHub Issues**: [Report problems](https://github.com/yc-opennext/yc-opennext/issues)
-- **Community**: [Discussions](https://github.com/yc-opennext/yc-opennext/discussions)
+- **Documentation**: [YC-Next Docs](../README.md)
+- **GitHub Issues**: [Report problems](https://github.com/yc-next/yc-next/issues)
+- **Community**: [Discussions](https://github.com/yc-next/yc-next/discussions)
 - **Vercel Migration Help**: Tag issues with `migration-from-vercel`
 
 ## Summary
 
-Migrating from Vercel to YC-OpenNext involves:
+Migrating from Vercel to YC-Next involves:
 
 1. **Configuration changes**: Update configs for YC compatibility
-2. **Build process**: Use YC-OpenNext CLI instead of Vercel CLI
+2. **Build process**: Use YC-Next CLI instead of Vercel CLI
 3. **Infrastructure**: Provision YC resources with Terraform
 4. **CI/CD**: Replace Vercel's Git integration with GitHub Actions
 5. **Monitoring**: Set up custom monitoring/analytics

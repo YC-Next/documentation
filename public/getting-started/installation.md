@@ -1,6 +1,6 @@
 # Installation Guide
 
-Complete setup instructions for YC-OpenNext and all required dependencies.
+Complete setup instructions for YC-Next and all required dependencies.
 
 ## System Requirements
 
@@ -95,22 +95,22 @@ source ~/.bashrc
 yc version
 ```
 
-## Installing YC-OpenNext
+## Installing YC-Next
 
 ### Global Installation (Recommended)
 
 ```bash
 # Using npm
-npm install -g @yc-opennext/cli
+npm install -g @yc-next/cli
 
 # Using yarn
-yarn global add @yc-opennext/cli
+yarn global add @yc-next/cli
 
 # Using pnpm
-pnpm add -g @yc-opennext/cli
+pnpm add -g @yc-next/cli
 
 # Verify installation
-yc-opennext --version
+yc-next --version
 ```
 
 ### Project-Level Installation
@@ -120,13 +120,13 @@ yc-opennext --version
 cd your-nextjs-project
 
 # Using npm
-npm install --save-dev @yc-opennext/cli
+npm install --save-dev @yc-next/cli
 
 # Using yarn
-yarn add -D @yc-opennext/cli
+yarn add -D @yc-next/cli
 
 # Using pnpm
-pnpm add -D @yc-opennext/cli
+pnpm add -D @yc-next/cli
 ```
 
 Add to your `package.json` scripts:
@@ -134,8 +134,8 @@ Add to your `package.json` scripts:
 ```json
 {
   "scripts": {
-    "yc:build": "yc-opennext build --project . --output ./yc-build",
-    "yc:deploy": "yc-opennext upload --build-dir ./yc-build --bucket $BUCKET"
+    "yc:build": "yc-next build --project . --output ./yc-build",
+    "yc:deploy": "yc-next upload --build-dir ./yc-build --bucket $BUCKET"
   }
 }
 ```
@@ -167,18 +167,18 @@ yc init
 ```bash
 # Create service account
 yc iam service-account create \
-  --name yc-opennext-sa \
-  --description "Service account for YC-OpenNext deployments"
+  --name yc-next-sa \
+  --description "Service account for YC-Next deployments"
 
 # Assign roles
 yc resource-manager folder add-access-binding \
   --id <folder-id> \
   --role editor \
-  --service-account-name yc-opennext-sa
+  --service-account-name yc-next-sa
 
 # Create static access key
 yc iam access-key create \
-  --service-account-name yc-opennext-sa \
+  --service-account-name yc-next-sa \
   --format json > sa-key.json
 
 # Export credentials
@@ -228,8 +228,8 @@ Install recommended extensions for better development experience:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yc-opennext/yc-opennext.git
-cd yc-opennext
+git clone https://github.com/yc-next/yc-next.git
+cd yc-next
 
 # Install dependencies
 pnpm install
@@ -249,7 +249,7 @@ pnpm test
 # Create a test script: check-setup.sh
 #!/bin/bash
 
-echo "Checking YC-OpenNext setup..."
+echo "Checking YC-Next setup..."
 
 # Check Node.js
 echo -n "Node.js: "
@@ -267,9 +267,9 @@ terraform version -json 2>/dev/null | jq -r .terraform_version || echo "❌ Not 
 echo -n "YC CLI: "
 yc version --format json | jq -r .version || echo "❌ Not installed"
 
-# Check YC-OpenNext
-echo -n "YC-OpenNext: "
-yc-opennext --version || echo "❌ Not installed"
+# Check YC-Next
+echo -n "YC-Next: "
+yc-next --version || echo "❌ Not installed"
 
 # Check YC authentication
 echo -n "YC Auth: "
@@ -299,9 +299,9 @@ npx create-next-app@latest test-app --typescript --app --no-tailwind
 
 cd test-app
 
-# Build with YC-OpenNext
-yc-opennext analyze --project .
-yc-opennext build --project . --output ./yc-build
+# Build with YC-Next
+yc-next analyze --project .
+yc-next build --project . --output ./yc-build
 
 # If successful, you're ready to deploy!
 ```
@@ -349,15 +349,15 @@ RUN wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/shar
 # Install YC CLI
 RUN curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
 
-# Install YC-OpenNext
-RUN npm install -g @yc-opennext/cli
+# Install YC-Next
+RUN npm install -g @yc-next/cli
 
 WORKDIR /app
 ```
 
 ## Next Steps
 
-Now that you have YC-OpenNext installed:
+Now that you have YC-Next installed:
 
 1. [Deploy your first application](./first-deployment.md)
 2. [Configure your Next.js app](../guides/nextjs-configuration.md)
@@ -368,5 +368,5 @@ Now that you have YC-OpenNext installed:
 If you encounter installation issues:
 
 - Check our [Troubleshooting Guide](../reference/troubleshooting.md)
-- Search [GitHub Issues](https://github.com/yc-opennext/yc-opennext/issues)
-- Join our [Community Discussion](https://github.com/yc-opennext/yc-opennext/discussions)
+- Search [GitHub Issues](https://github.com/yc-next/yc-next/issues)
+- Join our [Community Discussion](https://github.com/yc-next/yc-next/discussions)

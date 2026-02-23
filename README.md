@@ -1,6 +1,6 @@
-# YC-OpenNext Documentation
+# YC-Next Documentation
 
-Documentation site for the YC-OpenNext project, deployed to GitHub Pages.
+Documentation site for the YC-Next project, deployed to GitHub Pages.
 
 ## Local Development
 

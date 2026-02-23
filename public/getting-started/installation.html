@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Installation Guide - YC-OpenNext Docs</title>
+    <title>Installation Guide - YC-Next Docs</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
@@ -42,7 +42,7 @@
               YC
             </text>
           </svg>
-          YC-OpenNext
+          YC-Next
         </a>
         <ul class="nav-links">
           <li><a href="/#features">Features</a></li>
@@ -50,7 +50,7 @@
           <li><a href="/docs.html" class="active">Documentation</a></li>
           <li><a href="/examples/blog-with-isr.html">Examples</a></li>
         </ul>
-        <a href="https://github.com/yc-opennext/yc-opennext" class="github-btn" target="_blank">
+        <a href="https://github.com/yc-next/yc-next" class="github-btn" target="_blank">
           <i class="fab fa-github"></i> GitHub
         </a>
         <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
@@ -114,7 +114,7 @@
           <div class="page-header">
             <h1>Installation Guide</h1>
             <p class="subtitle">
-              Complete setup instructions for YC-OpenNext and all required dependencies.
+              Complete setup instructions for YC-Next and all required dependencies.
             </p>
           </div>
 
@@ -207,22 +207,22 @@ source ~/.bashrc
 # Verify installation
 yc version</code></pre>
 
-          <!-- Installing YC-OpenNext -->
-          <h2>Installing YC-OpenNext</h2>
+          <!-- Installing YC-Next -->
+          <h2>Installing YC-Next</h2>
 
           <h3>Global Installation (Recommended)</h3>
 
           <pre><code class="language-bash"># Using npm
-npm install -g @yc-opennext/cli
+npm install -g @yc-next/cli
 
 # Using yarn
-yarn global add @yc-opennext/cli
+yarn global add @yc-next/cli
 
 # Using pnpm
-pnpm add -g @yc-opennext/cli
+pnpm add -g @yc-next/cli
 
 # Verify installation
-yc-opennext --version</code></pre>
+yc-next --version</code></pre>
 
           <h3>Project-Level Installation</h3>
 
@@ -230,20 +230,20 @@ yc-opennext --version</code></pre>
 cd your-nextjs-project
 
 # Using npm
-npm install --save-dev @yc-opennext/cli
+npm install --save-dev @yc-next/cli
 
 # Using yarn
-yarn add -D @yc-opennext/cli
+yarn add -D @yc-next/cli
 
 # Using pnpm
-pnpm add -D @yc-opennext/cli</code></pre>
+pnpm add -D @yc-next/cli</code></pre>
 
           <p>Add to your <code>package.json</code> scripts:</p>
 
           <pre><code class="language-json">{
   "scripts": {
-    "yc:build": "yc-opennext build --project . --output ./yc-build",
-    "yc:deploy": "yc-opennext upload --build-dir ./yc-build --bucket $BUCKET"
+    "yc:build": "yc-next build --project . --output ./yc-build",
+    "yc:deploy": "yc-next upload --build-dir ./yc-build --bucket $BUCKET"
   }
 }</code></pre>
 
@@ -274,18 +274,18 @@ yc init
 
           <pre><code class="language-bash"># Create service account
 yc iam service-account create \
-  --name yc-opennext-sa \
-  --description "Service account for YC-OpenNext deployments"
+  --name yc-next-sa \
+  --description "Service account for YC-Next deployments"
 
 # Assign roles
 yc resource-manager folder add-access-binding \
   --id &lt;folder-id&gt; \
   --role editor \
-  --service-account-name yc-opennext-sa
+  --service-account-name yc-next-sa
 
 # Create static access key
 yc iam access-key create \
-  --service-account-name yc-opennext-sa \
+  --service-account-name yc-next-sa \
   --format json &gt; sa-key.json
 
 # Export credentials
@@ -330,8 +330,8 @@ YDB_DATABASE=/ru-central1/b1g.../etn...</code></pre>
           <h3>Git Configuration</h3>
 
           <pre><code class="language-bash"># Clone the repository
-git clone https://github.com/yc-opennext/yc-opennext.git
-cd yc-opennext
+git clone https://github.com/yc-next/yc-next.git
+cd yc-next
 
 # Install dependencies
 pnpm install
@@ -350,7 +350,7 @@ pnpm test</code></pre>
           <pre><code class="language-bash"># Create a test script: check-setup.sh
 #!/bin/bash
 
-echo "Checking YC-OpenNext setup..."
+echo "Checking YC-Next setup..."
 
 # Check Node.js
 echo -n "Node.js: "
@@ -368,9 +368,9 @@ terraform version -json 2&gt;/dev/null | jq -r .terraform_version || echo "Not i
 echo -n "YC CLI: "
 yc version --format json | jq -r .version || echo "Not installed"
 
-# Check YC-OpenNext
-echo -n "YC-OpenNext: "
-yc-opennext --version || echo "Not installed"
+# Check YC-Next
+echo -n "YC-Next: "
+yc-next --version || echo "Not installed"
 
 # Check YC authentication
 echo -n "YC Auth: "
@@ -396,9 +396,9 @@ npx create-next-app@latest test-app --typescript --app --no-tailwind
 
 cd test-app
 
-# Build with YC-OpenNext
-yc-opennext analyze --project .
-yc-opennext build --project . --output ./yc-build
+# Build with YC-Next
+yc-next analyze --project .
+yc-next build --project . --output ./yc-build
 
 # If successful, you're ready to deploy!</code></pre>
 
@@ -454,15 +454,15 @@ RUN wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/shar
 # Install YC CLI
 RUN curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
 
-# Install YC-OpenNext
-RUN npm install -g @yc-opennext/cli
+# Install YC-Next
+RUN npm install -g @yc-next/cli
 
 WORKDIR /app</code></pre>
 
           <!-- Next Steps -->
           <h2>Next Steps</h2>
 
-          <p>Now that you have YC-OpenNext installed:</p>
+          <p>Now that you have YC-Next installed:</p>
 
           <ol>
             <li><a href="/getting-started/quick-start.html">Deploy your first application</a></li>
@@ -479,13 +479,13 @@ WORKDIR /app</code></pre>
             <li>Check our <a href="/reference/troubleshooting.html">Troubleshooting Guide</a></li>
             <li>
               Search
-              <a href="https://github.com/yc-opennext/yc-opennext/issues" target="_blank"
+              <a href="https://github.com/yc-next/yc-next/issues" target="_blank"
                 >GitHub Issues</a
               >
             </li>
             <li>
               Join our
-              <a href="https://github.com/yc-opennext/yc-opennext/discussions" target="_blank"
+              <a href="https://github.com/yc-next/yc-next/discussions" target="_blank"
                 >Community Discussion</a
               >
             </li>
@@ -526,9 +526,9 @@ WORKDIR /app</code></pre>
         <div class="footer-section">
           <h3>Community</h3>
           <ul class="footer-links">
-            <li><a href="https://github.com/yc-opennext/yc-opennext" target="_blank">GitHub</a></li>
+            <li><a href="https://github.com/yc-next/yc-next" target="_blank">GitHub</a></li>
             <li>
-              <a href="https://github.com/yc-opennext/yc-opennext/discussions" target="_blank"
+              <a href="https://github.com/yc-next/yc-next/discussions" target="_blank"
                 >Discussions</a
               >
             </li>
@@ -536,7 +536,7 @@ WORKDIR /app</code></pre>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 YC-OpenNext. All rights reserved. | MIT License</p>
+        <p>&copy; 2024 YC-Next. All rights reserved. | MIT License</p>
       </div>
     </footer>
 
