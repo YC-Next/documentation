@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Example: Blog with ISR - YC-OpenNext Docs</title>
+    <title>Example: Blog with ISR - YC-Next Docs</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
@@ -42,7 +42,7 @@
               YC
             </text>
           </svg>
-          YC-OpenNext
+          YC-Next
         </a>
         <ul class="nav-links">
           <li><a href="/#features">Features</a></li>
@@ -50,7 +50,7 @@
           <li><a href="/docs.html" class="active">Documentation</a></li>
           <li><a href="/examples/blog-with-isr.html">Examples</a></li>
         </ul>
-        <a href="https://github.com/yc-opennext/yc-opennext" class="github-btn" target="_blank">
+        <a href="https://github.com/yc-next/yc-next" class="github-btn" target="_blank">
           <i class="fab fa-github"></i> GitHub
         </a>
         <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
@@ -505,13 +505,13 @@ async function revalidate(type, value) {
 npm run build
 
 # Package for YC
-yc-opennext build \
+yc-next build \
   --project . \
   --output ./yc-build \
   --standalone
 
 # Upload to YC
-yc-opennext upload \
+yc-next upload \
   --build-dir ./yc-build \
   --bucket blog-assets \
   --cache-bucket blog-cache \
@@ -521,7 +521,7 @@ yc-opennext upload \
 
           <pre><code class="language-hcl"># terraform/main.tf
 module "blog" {
-  source = "github.com/yc-opennext/yc-opennext//terraform/modules/nextjs_yc"
+  source = "github.com/yc-next/yc-next//terraform/modules/nextjs_yc"
 
   app_name       = "my-blog"
   env            = "production"
@@ -708,9 +708,9 @@ export async function getCacheStats() {
         <div class="footer-section">
           <h3>Community</h3>
           <ul class="footer-links">
-            <li><a href="https://github.com/yc-opennext/yc-opennext" target="_blank">GitHub</a></li>
+            <li><a href="https://github.com/yc-next/yc-next" target="_blank">GitHub</a></li>
             <li>
-              <a href="https://github.com/yc-opennext/yc-opennext/discussions" target="_blank"
+              <a href="https://github.com/yc-next/yc-next/discussions" target="_blank"
                 >Discussions</a
               >
             </li>
@@ -718,7 +718,7 @@ export async function getCacheStats() {
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 YC-OpenNext. All rights reserved. | MIT License</p>
+        <p>&copy; 2024 YC-Next. All rights reserved. | MIT License</p>
       </div>
     </footer>
 

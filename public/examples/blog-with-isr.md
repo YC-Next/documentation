@@ -404,13 +404,13 @@ async function revalidate(type, value) {
 npm run build
 
 # Package for YC
-yc-opennext build \
+yc-next build \
   --project . \
   --output ./yc-build \
   --standalone
 
 # Upload to YC
-yc-opennext upload \
+yc-next upload \
   --build-dir ./yc-build \
   --bucket blog-assets \
   --cache-bucket blog-cache \
@@ -422,7 +422,7 @@ yc-opennext upload \
 ```hcl
 # terraform/main.tf
 module "blog" {
-  source = "github.com/yc-opennext/yc-opennext//terraform/modules/nextjs_yc"
+  source = "github.com/yc-next/yc-next//terraform/modules/nextjs_yc"
 
   app_name       = "my-blog"
   env            = "production"

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quick Start Guide - YC-OpenNext Docs</title>
+    <title>Quick Start Guide - YC-Next Docs</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
@@ -42,7 +42,7 @@
               YC
             </text>
           </svg>
-          YC-OpenNext
+          YC-Next
         </a>
         <ul class="nav-links">
           <li><a href="/#features">Features</a></li>
@@ -50,7 +50,7 @@
           <li><a href="/docs.html" class="active">Documentation</a></li>
           <li><a href="/examples/blog-with-isr.html">Examples</a></li>
         </ul>
-        <a href="https://github.com/yc-opennext/yc-opennext" class="github-btn" target="_blank">
+        <a href="https://github.com/yc-next/yc-next" class="github-btn" target="_blank">
           <i class="fab fa-github"></i> GitHub
         </a>
         <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
@@ -133,13 +133,13 @@
           </ul>
 
           <!-- Step 1 -->
-          <h2>Step 1: Install YC-OpenNext</h2>
+          <h2>Step 1: Install YC-Next</h2>
 
-          <pre><code class="language-bash">npm install -g @yc-opennext/cli</code></pre>
+          <pre><code class="language-bash">npm install -g @yc-next/cli</code></pre>
 
           <p>Or add to your project:</p>
 
-          <pre><code class="language-bash">npm install --save-dev @yc-opennext/cli</code></pre>
+          <pre><code class="language-bash">npm install --save-dev @yc-next/cli</code></pre>
 
           <!-- Step 2 -->
           <h2>Step 2: Configure Yandex Cloud</h2>
@@ -150,10 +150,10 @@
 yc init
 
 # Create a service account for deployment
-yc iam service-account create --name yc-opennext-deploy
+yc iam service-account create --name yc-next-deploy
 
 # Create access keys
-yc iam access-key create --service-account-name yc-opennext-deploy &gt; keys.json
+yc iam access-key create --service-account-name yc-next-deploy &gt; keys.json
 
 # Export credentials
 export AWS_ACCESS_KEY_ID=$(cat keys.json | jq -r .access_key.key_id)
@@ -199,7 +199,7 @@ npm run build</code></pre>
           <h2>Step 4: Package for Deployment</h2>
 
           <pre><code class="language-bash"># Analyze and build for YC
-yc-opennext build \
+yc-next build \
   --project . \
   --output ./yc-build \
   --standalone \
@@ -232,7 +232,7 @@ export CACHE_BUCKET=my-app-cache-xxxxx</code></pre>
           <!-- Step 6 -->
           <h2>Step 6: Upload Artifacts</h2>
 
-          <pre><code class="language-bash">yc-opennext upload \
+          <pre><code class="language-bash">yc-next upload \
   --build-dir ./yc-build \
   --bucket $ASSETS_BUCKET \
   --cache-bucket $CACHE_BUCKET \
@@ -259,7 +259,7 @@ export CACHE_BUCKET=my-app-cache-xxxxx</code></pre>
 provider "yandex" {}
 
 module "nextjs_app" {
-  source = "github.com/yc-opennext/yc-opennext//terraform/modules/nextjs_yc"
+  source = "github.com/yc-next/yc-next//terraform/modules/nextjs_yc"
 
   app_name       = "my-nextjs-app"
   env            = "production"
@@ -316,8 +316,8 @@ terraform output app_url</code></pre>
           <h2>Quick Commands Reference</h2>
 
           <pre><code class="language-bash"># Build and deploy a new version
-yc-opennext build --project . --output ./build-v2
-yc-opennext upload --build-dir ./build-v2 --bucket $ASSETS_BUCKET --prefix v2
+yc-next build --project . --output ./build-v2
+yc-next upload --build-dir ./build-v2 --bucket $ASSETS_BUCKET --prefix v2
 terraform apply -var="manifest_path=./build-v2/deploy.manifest.json"
 
 # Rollback to previous version
@@ -391,9 +391,9 @@ terraform show</code></pre>
         <div class="footer-section">
           <h3>Community</h3>
           <ul class="footer-links">
-            <li><a href="https://github.com/yc-opennext/yc-opennext" target="_blank">GitHub</a></li>
+            <li><a href="https://github.com/yc-next/yc-next" target="_blank">GitHub</a></li>
             <li>
-              <a href="https://github.com/yc-opennext/yc-opennext/discussions" target="_blank"
+              <a href="https://github.com/yc-next/yc-next/discussions" target="_blank"
                 >Discussions</a
               >
             </li>
@@ -401,7 +401,7 @@ terraform show</code></pre>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 YC-OpenNext. All rights reserved. | MIT License</p>
+        <p>&copy; 2024 YC-Next. All rights reserved. | MIT License</p>
       </div>
     </footer>
 

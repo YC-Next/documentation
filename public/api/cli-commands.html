@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CLI Command Reference - YC-OpenNext Docs</title>
+    <title>CLI Command Reference - YC-Next Docs</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
@@ -42,7 +42,7 @@
               YC
             </text>
           </svg>
-          YC-OpenNext
+          YC-Next
         </a>
         <ul class="nav-links">
           <li><a href="/#features">Features</a></li>
@@ -50,7 +50,7 @@
           <li><a href="/docs.html" class="active">Documentation</a></li>
           <li><a href="/examples/blog-with-isr.html">Examples</a></li>
         </ul>
-        <a href="https://github.com/yc-opennext/yc-opennext" class="github-btn" target="_blank">
+        <a href="https://github.com/yc-next/yc-next" class="github-btn" target="_blank">
           <i class="fab fa-github"></i> GitHub
         </a>
         <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
@@ -113,7 +113,7 @@
 
           <div class="page-header">
             <h1>CLI Command Reference</h1>
-            <p class="subtitle">Complete reference for all YC-OpenNext CLI commands and options.</p>
+            <p class="subtitle">Complete reference for all YC-Next CLI commands and options.</p>
           </div>
 
           <h2>Global Options</h2>
@@ -158,18 +158,18 @@
                 <td><code>--config</code></td>
                 <td><code>-c</code></td>
                 <td>Path to config file</td>
-                <td><code>yc-opennext.config.js</code></td>
+                <td><code>yc-next.config.js</code></td>
               </tr>
             </tbody>
           </table>
 
           <h2>Commands</h2>
 
-          <h3><code>yc-opennext analyze</code></h3>
+          <h3><code>yc-next analyze</code></h3>
 
           <p>Analyze a Next.js project to detect capabilities and check compatibility.</p>
 
-          <pre><code class="language-bash">yc-opennext analyze [options]</code></pre>
+          <pre><code class="language-bash">yc-next analyze [options]</code></pre>
 
           <h4>Options</h4>
 
@@ -213,16 +213,16 @@
           <h4>Examples</h4>
 
           <pre><code class="language-bash"># Basic analysis
-yc-opennext analyze --project ./my-app
+yc-next analyze --project ./my-app
 
 # Save analysis results
-yc-opennext analyze --project ./my-app --output ./analysis
+yc-next analyze --project ./my-app --output ./analysis
 
 # Table format output
-yc-opennext analyze --project ./my-app --format table
+yc-next analyze --project ./my-app --format table
 
 # Strict mode (fail on warnings)
-yc-opennext analyze --project ./my-app --strict</code></pre>
+yc-next analyze --project ./my-app --strict</code></pre>
 
           <h4>Output</h4>
 
@@ -249,11 +249,11 @@ yc-opennext analyze --project ./my-app --strict</code></pre>
 
           <hr />
 
-          <h3><code>yc-opennext build</code></h3>
+          <h3><code>yc-next build</code></h3>
 
           <p>Build and package a Next.js application for Yandex Cloud deployment.</p>
 
-          <pre><code class="language-bash">yc-opennext build [options]</code></pre>
+          <pre><code class="language-bash">yc-next build [options]</code></pre>
 
           <h4>Options</h4>
 
@@ -315,16 +315,16 @@ yc-opennext analyze --project ./my-app --strict</code></pre>
           <h4>Examples</h4>
 
           <pre><code class="language-bash"># Basic build
-yc-opennext build --project ./my-app --output ./build
+yc-next build --project ./my-app --output ./build
 
 # Standalone mode (recommended)
-yc-opennext build --project ./my-app --output ./build --standalone
+yc-next build --project ./my-app --output ./build --standalone
 
 # Custom build ID
-yc-opennext build --project ./my-app --output ./build --build-id v1.2.3
+yc-next build --project ./my-app --output ./build --build-id v1.2.3
 
 # Skip Next.js build (use existing .next)
-yc-opennext build --project ./my-app --output ./build --skip-build</code></pre>
+yc-next build --project ./my-app --output ./build --skip-build</code></pre>
 
           <h4>Output Structure</h4>
 
@@ -341,11 +341,11 @@ yc-opennext build --project ./my-app --output ./build --skip-build</code></pre>
 
           <hr />
 
-          <h3><code>yc-opennext upload</code></h3>
+          <h3><code>yc-next upload</code></h3>
 
           <p>Upload build artifacts to Yandex Cloud Object Storage.</p>
 
-          <pre><code class="language-bash">yc-opennext upload [options]</code></pre>
+          <pre><code class="language-bash">yc-next upload [options]</code></pre>
 
           <h4>Options</h4>
 
@@ -419,27 +419,27 @@ yc-opennext build --project ./my-app --output ./build --skip-build</code></pre>
           <h4>Examples</h4>
 
           <pre><code class="language-bash"># Basic upload
-yc-opennext upload \
+yc-next upload \
   --build-dir ./build \
   --bucket my-app-assets \
   --prefix v1
 
 # With cache bucket
-yc-opennext upload \
+yc-next upload \
   --build-dir ./build \
   --bucket my-app-assets \
   --cache-bucket my-app-cache \
   --prefix v1
 
 # Dry run to preview
-yc-opennext upload \
+yc-next upload \
   --build-dir ./build \
   --bucket my-app-assets \
   --prefix v1 \
   --dry-run
 
 # Parallel uploads
-yc-opennext upload \
+yc-next upload \
   --build-dir ./build \
   --bucket my-app-assets \
   --prefix v1 \
@@ -454,11 +454,11 @@ export AWS_SECRET_ACCESS_KEY=your_secret_key</code></pre>
 
           <hr />
 
-          <h3><code>yc-opennext deploy-manifest</code></h3>
+          <h3><code>yc-next deploy-manifest</code></h3>
 
           <p>Generate or update a deployment manifest from build artifacts.</p>
 
-          <pre><code class="language-bash">yc-opennext deploy-manifest [options]</code></pre>
+          <pre><code class="language-bash">yc-next deploy-manifest [options]</code></pre>
 
           <h4>Options</h4>
 
@@ -502,29 +502,29 @@ export AWS_SECRET_ACCESS_KEY=your_secret_key</code></pre>
           <h4>Examples</h4>
 
           <pre><code class="language-bash"># Generate manifest
-yc-opennext deploy-manifest \
+yc-next deploy-manifest \
   --build-dir ./build \
   --out ./deploy.manifest.json
 
 # Merge with existing
-yc-opennext deploy-manifest \
+yc-next deploy-manifest \
   --build-dir ./build \
   --out ./deploy.manifest.json \
   --merge ./previous.manifest.json
 
 # Override values
-yc-opennext deploy-manifest \
+yc-next deploy-manifest \
   --build-dir ./build \
   --out ./deploy.manifest.json \
   --override '{"deployment":{"region":"ru-central1-b"}}'</code></pre>
 
           <hr />
 
-          <h3><code>yc-opennext plan</code></h3>
+          <h3><code>yc-next plan</code></h3>
 
           <p>Preview deployment without executing (shows what would be deployed).</p>
 
-          <pre><code class="language-bash">yc-opennext plan [options]</code></pre>
+          <pre><code class="language-bash">yc-next plan [options]</code></pre>
 
           <h4>Options</h4>
 
@@ -562,21 +562,21 @@ yc-opennext deploy-manifest \
           <h4>Examples</h4>
 
           <pre><code class="language-bash"># Basic plan
-yc-opennext plan --project ./my-app
+yc-next plan --project ./my-app
 
 # Compare with previous
-yc-opennext plan --project ./my-app --compare v1
+yc-next plan --project ./my-app --compare v1
 
 # With cost estimation
-yc-opennext plan --project ./my-app --cost-estimate</code></pre>
+yc-next plan --project ./my-app --cost-estimate</code></pre>
 
           <hr />
 
-          <h3><code>yc-opennext validate</code></h3>
+          <h3><code>yc-next validate</code></h3>
 
           <p>Validate configuration and deployment readiness.</p>
 
-          <pre><code class="language-bash">yc-opennext validate [options]</code></pre>
+          <pre><code class="language-bash">yc-next validate [options]</code></pre>
 
           <h4>Options</h4>
 
@@ -614,21 +614,21 @@ yc-opennext plan --project ./my-app --cost-estimate</code></pre>
           <h4>Examples</h4>
 
           <pre><code class="language-bash"># Validate manifest
-yc-opennext validate --manifest ./deploy.manifest.json
+yc-next validate --manifest ./deploy.manifest.json
 
 # Validate Terraform
-yc-opennext validate --terraform ./terraform
+yc-next validate --terraform ./terraform
 
 # Validate bucket access
-yc-opennext validate --bucket my-app-assets</code></pre>
+yc-next validate --bucket my-app-assets</code></pre>
 
           <hr />
 
-          <h3><code>yc-opennext rollback</code></h3>
+          <h3><code>yc-next rollback</code></h3>
 
           <p>Rollback to a previous deployment version.</p>
 
-          <pre><code class="language-bash">yc-opennext rollback [options]</code></pre>
+          <pre><code class="language-bash">yc-next rollback [options]</code></pre>
 
           <h4>Options</h4>
 
@@ -666,18 +666,18 @@ yc-opennext validate --bucket my-app-assets</code></pre>
           <h4>Examples</h4>
 
           <pre><code class="language-bash"># Rollback to specific version
-yc-opennext rollback --to v1.2.2
+yc-next rollback --to v1.2.2
 
 # Auto-approve rollback
-yc-opennext rollback --to v1.2.2 --auto-approve</code></pre>
+yc-next rollback --to v1.2.2 --auto-approve</code></pre>
 
           <hr />
 
-          <h3><code>yc-opennext logs</code></h3>
+          <h3><code>yc-next logs</code></h3>
 
           <p>View function logs and metrics.</p>
 
-          <pre><code class="language-bash">yc-opennext logs [options]</code></pre>
+          <pre><code class="language-bash">yc-next logs [options]</code></pre>
 
           <h4>Options</h4>
 
@@ -721,22 +721,22 @@ yc-opennext rollback --to v1.2.2 --auto-approve</code></pre>
           <h4>Examples</h4>
 
           <pre><code class="language-bash"># View all logs
-yc-opennext logs
+yc-next logs
 
 # Follow specific function
-yc-opennext logs --function server --tail
+yc-next logs --function server --tail
 
 # Logs from last 30 minutes
-yc-opennext logs --since 30m
+yc-next logs --since 30m
 
 # Filter errors
-yc-opennext logs --filter ERROR</code></pre>
+yc-next logs --filter ERROR</code></pre>
 
           <hr />
 
           <h2>Configuration File</h2>
 
-          <p>You can create a <code>yc-opennext.config.js</code> file to set default options:</p>
+          <p>You can create a <code>yc-next.config.js</code> file to set default options:</p>
 
           <pre><code class="language-javascript">module.exports = {
   // Default project path
@@ -770,7 +770,7 @@ yc-opennext logs --filter ERROR</code></pre>
 
   // Custom environment variables
   env: {
-    DEBUG: 'yc-opennext:*',
+    DEBUG: 'yc-next:*',
   },
 };</code></pre>
 
@@ -823,31 +823,31 @@ yc-opennext logs --filter ERROR</code></pre>
 
           <p>Enable debug output with environment variable:</p>
 
-          <pre><code class="language-bash">DEBUG=yc-opennext:* yc-opennext build --project .</code></pre>
+          <pre><code class="language-bash">DEBUG=yc-next:* yc-next build --project .</code></pre>
 
           <p>Debug specific components:</p>
 
           <pre><code class="language-bash"># Debug analyzer only
-DEBUG=yc-opennext:analyzer yc-opennext analyze --project .
+DEBUG=yc-next:analyzer yc-next analyze --project .
 
 # Debug builder only
-DEBUG=yc-opennext:builder yc-opennext build --project .
+DEBUG=yc-next:builder yc-next build --project .
 
 # Debug uploader only
-DEBUG=yc-opennext:uploader yc-opennext upload --build-dir .</code></pre>
+DEBUG=yc-next:uploader yc-next upload --build-dir .</code></pre>
 
           <h2>Shell Completion</h2>
 
           <p>Enable tab completion for your shell:</p>
 
           <pre><code class="language-bash"># Bash
-yc-opennext completion bash &gt; /etc/bash_completion.d/yc-opennext
+yc-next completion bash &gt; /etc/bash_completion.d/yc-next
 
 # Zsh
-yc-opennext completion zsh &gt; "${fpath[1]}/_yc-opennext"
+yc-next completion zsh &gt; "${fpath[1]}/_yc-next"
 
 # Fish
-yc-opennext completion fish &gt; ~/.config/fish/completions/yc-opennext.fish</code></pre>
+yc-next completion fish &gt; ~/.config/fish/completions/yc-next.fish</code></pre>
 
           <!-- Previous/Next Navigation -->
           <div class="page-nav">
@@ -888,9 +888,9 @@ yc-opennext completion fish &gt; ~/.config/fish/completions/yc-opennext.fish</co
         <div class="footer-section">
           <h3>Community</h3>
           <ul class="footer-links">
-            <li><a href="https://github.com/yc-opennext/yc-opennext" target="_blank">GitHub</a></li>
+            <li><a href="https://github.com/yc-next/yc-next" target="_blank">GitHub</a></li>
             <li>
-              <a href="https://github.com/yc-opennext/yc-opennext/discussions" target="_blank"
+              <a href="https://github.com/yc-next/yc-next/discussions" target="_blank"
                 >Discussions</a
               >
             </li>
@@ -898,7 +898,7 @@ yc-opennext completion fish &gt; ~/.config/fish/completions/yc-opennext.fish</co
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 YC-OpenNext. All rights reserved. | MIT License</p>
+        <p>&copy; 2024 YC-Next. All rights reserved. | MIT License</p>
       </div>
     </footer>
 

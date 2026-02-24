@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YC-OpenNext - Deploy Next.js on Yandex Cloud</title>
+    <title>YC-Next - Deploy Next.js on Yandex Cloud</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -623,7 +623,7 @@
                     <circle cx="16" cy="16" r="15" fill="#1976d2"/>
                     <text x="16" y="21" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">YC</text>
                 </svg>
-                YC-OpenNext
+                YC-Next
             </a>
 
             <ul class="nav-links">
@@ -633,7 +633,7 @@
                 <li><a href="/examples/blog-with-isr.html">Examples</a></li>
             </ul>
 
-            <a href="https://github.com/yc-opennext/yc-opennext" class="github-btn" target="_blank">
+            <a href="https://github.com/yc-next/yc-next" class="github-btn" target="_blank">
                 <i class="fab fa-github"></i>
                 GitHub
             </a>
@@ -777,22 +777,22 @@
 
             <div class="code-content">
                 <div id="cli-code" class="code-panel">
-                    <pre><code class="language-bash"># Install YC-OpenNext CLI
-npm install -g @yc-opennext/cli
+                    <pre><code class="language-bash"># Install YC-Next CLI
+npm install -g @yc-next/cli
 
 # Build your Next.js application
-yc-opennext build
+yc-next build
 
 # Deploy to Yandex Cloud
-yc-opennext deploy --env production
+yc-next deploy --env production
 
 # View deployment status
-yc-opennext status</code></pre>
+yc-next status</code></pre>
                 </div>
 
                 <div id="terraform-code" class="code-panel" style="display: none;">
                     <pre><code class="language-hcl">module "nextjs" {
-  source = "yc-opennext/nextjs/yandex"
+  source = "yc-next/nextjs/yandex"
 
   app_name     = "my-nextjs-app"
   environment  = "production"
@@ -839,7 +839,7 @@ module.exports = {
                 <a href="/getting-started/quick-start.html" class="btn btn-primary">
                     Start Building
                 </a>
-                <a href="https://github.com/yc-opennext/yc-opennext" class="btn btn-secondary" target="_blank">
+                <a href="https://github.com/yc-next/yc-next" class="btn btn-secondary" target="_blank">
                     View on GitHub
                 </a>
             </div>
@@ -872,10 +872,10 @@ module.exports = {
             <div class="footer-section">
                 <h3>Community</h3>
                 <ul class="footer-links">
-                    <li><a href="https://github.com/yc-opennext/yc-opennext">GitHub</a></li>
-                    <li><a href="https://discord.gg/yc-opennext">Discord</a></li>
+                    <li><a href="https://github.com/yc-next/yc-next">GitHub</a></li>
+                    <li><a href="https://discord.gg/yc-next">Discord</a></li>
                     <li><a href="https://twitter.com/yc_opennext">Twitter</a></li>
-                    <li><a href="https://github.com/yc-opennext/yc-opennext/discussions">Discussions</a></li>
+                    <li><a href="https://github.com/yc-next/yc-next/discussions">Discussions</a></li>
                 </ul>
             </div>
 
@@ -891,7 +891,7 @@ module.exports = {
         </div>
 
         <div class="footer-bottom">
-            <p>© 2024 YC-OpenNext. All rights reserved. | MIT License</p>
+            <p>© 2024 YC-Next. All rights reserved. | MIT License</p>
         </div>
     </footer>
 

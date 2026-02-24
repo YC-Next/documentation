@@ -1,6 +1,6 @@
 # CLI Command Reference
 
-Complete reference for all YC-OpenNext CLI commands and options.
+Complete reference for all YC-Next CLI commands and options.
 
 ## Global Options
 
@@ -12,16 +12,16 @@ Options available for all commands:
 | `--version` | `-V`  | Show version number       | -                       |
 | `--verbose` | `-v`  | Enable verbose output     | `false`                 |
 | `--quiet`   | `-q`  | Suppress non-error output | `false`                 |
-| `--config`  | `-c`  | Path to config file       | `yc-opennext.config.js` |
+| `--config`  | `-c`  | Path to config file       | `yc-next.config.js` |
 
 ## Commands
 
-### `yc-opennext analyze`
+### `yc-next analyze`
 
 Analyze a Next.js project to detect capabilities and check compatibility.
 
 ```bash
-yc-opennext analyze [options]
+yc-next analyze [options]
 ```
 
 #### Options
@@ -37,16 +37,16 @@ yc-opennext analyze [options]
 
 ```bash
 # Basic analysis
-yc-opennext analyze --project ./my-app
+yc-next analyze --project ./my-app
 
 # Save analysis results
-yc-opennext analyze --project ./my-app --output ./analysis
+yc-next analyze --project ./my-app --output ./analysis
 
 # Table format output
-yc-opennext analyze --project ./my-app --format table
+yc-next analyze --project ./my-app --format table
 
 # Strict mode (fail on warnings)
-yc-opennext analyze --project ./my-app --strict
+yc-next analyze --project ./my-app --strict
 ```
 
 #### Output
@@ -76,12 +76,12 @@ The analyze command outputs a capabilities object:
 
 ---
 
-### `yc-opennext build`
+### `yc-next build`
 
 Build and package a Next.js application for Yandex Cloud deployment.
 
 ```bash
-yc-opennext build [options]
+yc-next build [options]
 ```
 
 #### Options
@@ -100,16 +100,16 @@ yc-opennext build [options]
 
 ```bash
 # Basic build
-yc-opennext build --project ./my-app --output ./build
+yc-next build --project ./my-app --output ./build
 
 # Standalone mode (recommended)
-yc-opennext build --project ./my-app --output ./build --standalone
+yc-next build --project ./my-app --output ./build --standalone
 
 # Custom build ID
-yc-opennext build --project ./my-app --output ./build --build-id v1.2.3
+yc-next build --project ./my-app --output ./build --build-id v1.2.3
 
 # Skip Next.js build (use existing .next)
-yc-opennext build --project ./my-app --output ./build --skip-build
+yc-next build --project ./my-app --output ./build --skip-build
 ```
 
 #### Output Structure
@@ -129,12 +129,12 @@ build/
 
 ---
 
-### `yc-opennext upload`
+### `yc-next upload`
 
 Upload build artifacts to Yandex Cloud Object Storage.
 
 ```bash
-yc-opennext upload [options]
+yc-next upload [options]
 ```
 
 #### Options
@@ -155,27 +155,27 @@ yc-opennext upload [options]
 
 ```bash
 # Basic upload
-yc-opennext upload \
+yc-next upload \
   --build-dir ./build \
   --bucket my-app-assets \
   --prefix v1
 
 # With cache bucket
-yc-opennext upload \
+yc-next upload \
   --build-dir ./build \
   --bucket my-app-assets \
   --cache-bucket my-app-cache \
   --prefix v1
 
 # Dry run to preview
-yc-opennext upload \
+yc-next upload \
   --build-dir ./build \
   --bucket my-app-assets \
   --prefix v1 \
   --dry-run
 
 # Parallel uploads
-yc-opennext upload \
+yc-next upload \
   --build-dir ./build \
   --bucket my-app-assets \
   --prefix v1 \
@@ -193,12 +193,12 @@ export AWS_SECRET_ACCESS_KEY=your_secret_key
 
 ---
 
-### `yc-opennext deploy-manifest`
+### `yc-next deploy-manifest`
 
 Generate or update a deployment manifest from build artifacts.
 
 ```bash
-yc-opennext deploy-manifest [options]
+yc-next deploy-manifest [options]
 ```
 
 #### Options
@@ -214,18 +214,18 @@ yc-opennext deploy-manifest [options]
 
 ```bash
 # Generate manifest
-yc-opennext deploy-manifest \
+yc-next deploy-manifest \
   --build-dir ./build \
   --out ./deploy.manifest.json
 
 # Merge with existing
-yc-opennext deploy-manifest \
+yc-next deploy-manifest \
   --build-dir ./build \
   --out ./deploy.manifest.json \
   --merge ./previous.manifest.json
 
 # Override values
-yc-opennext deploy-manifest \
+yc-next deploy-manifest \
   --build-dir ./build \
   --out ./deploy.manifest.json \
   --override '{"deployment":{"region":"ru-central1-b"}}'
@@ -233,12 +233,12 @@ yc-opennext deploy-manifest \
 
 ---
 
-### `yc-opennext plan`
+### `yc-next plan`
 
 Preview deployment without executing (shows what would be deployed).
 
 ```bash
-yc-opennext plan [options]
+yc-next plan [options]
 ```
 
 #### Options
@@ -253,23 +253,23 @@ yc-opennext plan [options]
 
 ```bash
 # Basic plan
-yc-opennext plan --project ./my-app
+yc-next plan --project ./my-app
 
 # Compare with previous
-yc-opennext plan --project ./my-app --compare v1
+yc-next plan --project ./my-app --compare v1
 
 # With cost estimation
-yc-opennext plan --project ./my-app --cost-estimate
+yc-next plan --project ./my-app --cost-estimate
 ```
 
 ---
 
-### `yc-opennext validate`
+### `yc-next validate`
 
 Validate configuration and deployment readiness.
 
 ```bash
-yc-opennext validate [options]
+yc-next validate [options]
 ```
 
 #### Options
@@ -284,23 +284,23 @@ yc-opennext validate [options]
 
 ```bash
 # Validate manifest
-yc-opennext validate --manifest ./deploy.manifest.json
+yc-next validate --manifest ./deploy.manifest.json
 
 # Validate Terraform
-yc-opennext validate --terraform ./terraform
+yc-next validate --terraform ./terraform
 
 # Validate bucket access
-yc-opennext validate --bucket my-app-assets
+yc-next validate --bucket my-app-assets
 ```
 
 ---
 
-### `yc-opennext rollback`
+### `yc-next rollback`
 
 Rollback to a previous deployment version.
 
 ```bash
-yc-opennext rollback [options]
+yc-next rollback [options]
 ```
 
 #### Options
@@ -315,20 +315,20 @@ yc-opennext rollback [options]
 
 ```bash
 # Rollback to specific version
-yc-opennext rollback --to v1.2.2
+yc-next rollback --to v1.2.2
 
 # Auto-approve rollback
-yc-opennext rollback --to v1.2.2 --auto-approve
+yc-next rollback --to v1.2.2 --auto-approve
 ```
 
 ---
 
-### `yc-opennext logs`
+### `yc-next logs`
 
 View function logs and metrics.
 
 ```bash
-yc-opennext logs [options]
+yc-next logs [options]
 ```
 
 #### Options
@@ -344,23 +344,23 @@ yc-opennext logs [options]
 
 ```bash
 # View all logs
-yc-opennext logs
+yc-next logs
 
 # Follow specific function
-yc-opennext logs --function server --tail
+yc-next logs --function server --tail
 
 # Logs from last 30 minutes
-yc-opennext logs --since 30m
+yc-next logs --since 30m
 
 # Filter errors
-yc-opennext logs --filter ERROR
+yc-next logs --filter ERROR
 ```
 
 ---
 
 ## Configuration File
 
-You can create a `yc-opennext.config.js` file to set default options:
+You can create a `yc-next.config.js` file to set default options:
 
 ```javascript
 module.exports = {
@@ -395,7 +395,7 @@ module.exports = {
 
   // Custom environment variables
   env: {
-    DEBUG: 'yc-opennext:*',
+    DEBUG: 'yc-next:*',
   },
 };
 ```
@@ -418,20 +418,20 @@ module.exports = {
 Enable debug output with environment variable:
 
 ```bash
-DEBUG=yc-opennext:* yc-opennext build --project .
+DEBUG=yc-next:* yc-next build --project .
 ```
 
 Debug specific components:
 
 ```bash
 # Debug analyzer only
-DEBUG=yc-opennext:analyzer yc-opennext analyze --project .
+DEBUG=yc-next:analyzer yc-next analyze --project .
 
 # Debug builder only
-DEBUG=yc-opennext:builder yc-opennext build --project .
+DEBUG=yc-next:builder yc-next build --project .
 
 # Debug uploader only
-DEBUG=yc-opennext:uploader yc-opennext upload --build-dir .
+DEBUG=yc-next:uploader yc-next upload --build-dir .
 ```
 
 ## Shell Completion
@@ -440,11 +440,11 @@ Enable tab completion for your shell:
 
 ```bash
 # Bash
-yc-opennext completion bash > /etc/bash_completion.d/yc-opennext
+yc-next completion bash > /etc/bash_completion.d/yc-next
 
 # Zsh
-yc-opennext completion zsh > "${fpath[1]}/_yc-opennext"
+yc-next completion zsh > "${fpath[1]}/_yc-next"
 
 # Fish
-yc-opennext completion fish > ~/.config/fish/completions/yc-opennext.fish
+yc-next completion fish > ~/.config/fish/completions/yc-next.fish
 ```

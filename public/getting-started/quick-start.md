@@ -11,16 +11,16 @@ Before you begin, ensure you have:
 - ✅ Yandex Cloud CLI installed ([installation guide](https://cloud.yandex.com/docs/cli/quickstart))
 - ✅ A Next.js application ready to deploy
 
-## Step 1: Install YC-OpenNext
+## Step 1: Install YC-Next
 
 ```bash
-npm install -g @yc-opennext/cli
+npm install -g @yc-next/cli
 ```
 
 Or add to your project:
 
 ```bash
-npm install --save-dev @yc-opennext/cli
+npm install --save-dev @yc-next/cli
 ```
 
 ## Step 2: Configure Yandex Cloud
@@ -32,10 +32,10 @@ npm install --save-dev @yc-opennext/cli
 yc init
 
 # Create a service account for deployment
-yc iam service-account create --name yc-opennext-deploy
+yc iam service-account create --name yc-next-deploy
 
 # Create access keys
-yc iam access-key create --service-account-name yc-opennext-deploy > keys.json
+yc iam access-key create --service-account-name yc-next-deploy > keys.json
 
 # Export credentials
 export AWS_ACCESS_KEY_ID=$(cat keys.json | jq -r .access_key.key_id)
@@ -87,7 +87,7 @@ npm run build
 
 ```bash
 # Analyze and build for YC
-yc-opennext build \
+yc-next build \
   --project . \
   --output ./yc-build \
   --standalone \
@@ -122,7 +122,7 @@ export CACHE_BUCKET=my-app-cache-xxxxx
 ## Step 6: Upload Artifacts
 
 ```bash
-yc-opennext upload \
+yc-next upload \
   --build-dir ./yc-build \
   --bucket $ASSETS_BUCKET \
   --cache-bucket $CACHE_BUCKET \
@@ -150,7 +150,7 @@ terraform {
 provider "yandex" {}
 
 module "nextjs_app" {
-  source = "github.com/yc-opennext/yc-opennext//terraform/modules/nextjs_yc"
+  source = "github.com/yc-next/yc-next//terraform/modules/nextjs_yc"
 
   app_name       = "my-nextjs-app"
   env            = "production"
@@ -201,8 +201,8 @@ You've successfully deployed your Next.js application to Yandex Cloud!
 
 ```bash
 # Build and deploy a new version
-yc-opennext build --project . --output ./build-v2
-yc-opennext upload --build-dir ./build-v2 --bucket $ASSETS_BUCKET --prefix v2
+yc-next build --project . --output ./build-v2
+yc-next upload --build-dir ./build-v2 --bucket $ASSETS_BUCKET --prefix v2
 terraform apply -var="manifest_path=./build-v2/deploy.manifest.json"
 
 # Rollback to previous version

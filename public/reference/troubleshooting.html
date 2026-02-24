@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Troubleshooting - YC-OpenNext Docs</title>
+    <title>Troubleshooting - YC-Next Docs</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
@@ -42,7 +42,7 @@
               YC
             </text>
           </svg>
-          YC-OpenNext
+          YC-Next
         </a>
         <ul class="nav-links">
           <li><a href="/#features">Features</a></li>
@@ -50,7 +50,7 @@
           <li><a href="/docs.html" class="active">Documentation</a></li>
           <li><a href="/examples/blog-with-isr.html">Examples</a></li>
         </ul>
-        <a href="https://github.com/yc-opennext/yc-opennext" class="github-btn" target="_blank">
+        <a href="https://github.com/yc-next/yc-next" class="github-btn" target="_blank">
           <i class="fab fa-github"></i> GitHub
         </a>
         <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
@@ -114,7 +114,7 @@
           <div class="page-header">
             <h1>Troubleshooting</h1>
             <p class="subtitle">
-              Common issues and solutions when deploying Next.js applications with YC-OpenNext.
+              Common issues and solutions when deploying Next.js applications with YC-Next.
             </p>
           </div>
 
@@ -123,15 +123,15 @@
           <h3>Error: "Next.js build directory (.next) not found"</h3>
           <p>
             <strong>Cause:</strong> The Next.js application hasn't been built before running
-            YC-OpenNext.
+            YC-Next.
           </p>
           <p><strong>Solution:</strong></p>
 
           <pre><code class="language-bash"># Build Next.js first
 npm run build
 
-# Then run YC-OpenNext
-yc-opennext build --project . --output ./yc-build</code></pre>
+# Then run YC-Next
+yc-next build --project . --output ./yc-build</code></pre>
 
           <hr />
 
@@ -148,11 +148,11 @@ cat package.json | grep '"next"'</code></pre>
           <hr />
 
           <h3>Error: "Incompatible Next.js version"</h3>
-          <p><strong>Cause:</strong> Using a Next.js version not supported by YC-OpenNext.</p>
+          <p><strong>Cause:</strong> Using a Next.js version not supported by YC-Next.</p>
           <p><strong>Solution:</strong></p>
 
           <pre><code class="language-bash"># Check supported versions
-yc-opennext analyze --project . --verbose
+yc-next analyze --project . --verbose
 
 # Update Next.js to a supported version
 npm install next@14</code></pre>
@@ -559,12 +559,12 @@ yc serverless function get --name my-app-server</code></pre>
           <p>Enable detailed logging for troubleshooting:</p>
 
           <pre><code class="language-bash"># Set debug environment variables
-export DEBUG=yc-opennext:*
+export DEBUG=yc-next:*
 export LOG_LEVEL=debug
 
 # In function environment
 environment = {
-  DEBUG = "yc-opennext:*"
+  DEBUG = "yc-next:*"
   LOG_LEVEL = "debug"
 }</code></pre>
 
@@ -573,11 +573,11 @@ environment = {
 
           <p><strong>1. Search existing issues:</strong></p>
 
-          <pre><code class="language-bash">https://github.com/yc-opennext/yc-opennext/issues</code></pre>
+          <pre><code class="language-bash">https://github.com/yc-next/yc-next/issues</code></pre>
 
           <p><strong>2. Create a detailed bug report:</strong></p>
           <ul>
-            <li>YC-OpenNext version</li>
+            <li>YC-Next version</li>
             <li>Next.js version</li>
             <li>Error messages</li>
             <li>Relevant configuration</li>
@@ -587,12 +587,12 @@ environment = {
           <p><strong>3. Join the community:</strong></p>
           <ul>
             <li>
-              <a href="https://github.com/yc-opennext/yc-opennext/discussions"
+              <a href="https://github.com/yc-next/yc-next/discussions"
                 >GitHub Discussions</a
               >
             </li>
             <li>
-              <a href="https://stackoverflow.com/questions/tagged/yc-opennext">Stack Overflow</a>
+              <a href="https://stackoverflow.com/questions/tagged/yc-next">Stack Overflow</a>
             </li>
           </ul>
 
@@ -695,9 +695,9 @@ environment = {
         <div class="footer-section">
           <h3>Community</h3>
           <ul class="footer-links">
-            <li><a href="https://github.com/yc-opennext/yc-opennext" target="_blank">GitHub</a></li>
+            <li><a href="https://github.com/yc-next/yc-next" target="_blank">GitHub</a></li>
             <li>
-              <a href="https://github.com/yc-opennext/yc-opennext/discussions" target="_blank"
+              <a href="https://github.com/yc-next/yc-next/discussions" target="_blank"
                 >Discussions</a
               >
             </li>
@@ -705,7 +705,7 @@ environment = {
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 YC-OpenNext. All rights reserved. | MIT License</p>
+        <p>&copy; 2024 YC-Next. All rights reserved. | MIT License</p>
       </div>
     </footer>
 
